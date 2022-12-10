@@ -1,6 +1,6 @@
 import { HttpClient, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -15,5 +15,11 @@ export class UploadService {
     const request = new HttpRequest('POST', url, formData);
 
     return this.http.request(request);
+  }
+
+  download(url: string): Observable<any> {
+    return this.http
+      .get(url, { responseType: 'blob' })
+      .pipe(tap((res) => console.log(res.type, res.size, res)));
   }
 }

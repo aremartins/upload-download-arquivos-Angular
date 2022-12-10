@@ -6,10 +6,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DipComponent } from './dip/dip/dip.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DipComponent
   ],
   imports: [
     BrowserModule,
